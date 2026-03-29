@@ -1,6 +1,6 @@
 [project]
 name = "selas-testpypi"
-version = "0.1.1"
+version = "0.1.2"
 description = "Interactive 2D visualization workbench for Pandas DataFrames"
 readme = "README.md"
 requires-python = ">=3.10"

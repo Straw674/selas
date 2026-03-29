@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.1.2 (2026-03-29)
+
+### Bug Fixes
+
+- **cli**: Rename explore command to selas and update python classifiers
+  ([`6a31902`](https://github.com/Straw674/selas/commit/6a3190239f1204f27dc84df20cddc327d14a4c59))
+
+
 ## v0.1.1 (2026-03-29)
 
 ### Bug Fixes
