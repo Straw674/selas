@@ -20,7 +20,7 @@ With pip:
 pip install selas
 ```
 
-After installing into your environment, the CLI entry `explore` is also available.
+After installing into your environment, the CLI entry `selas` is also available.
 
 ### 2) Use as a tool (CLI only)
 
@@ -29,7 +29,7 @@ Use this when you only need the CLI and do not want to add `selas` as a project 
 Run directly with uvx (no persistent install):
 
 ```bash
-uvx --from selas explore --help
+uvx --from selas selas --help
 ```
 
 Install as a global tool with uv:
@@ -41,7 +41,7 @@ uv tool install selas
 Then run:
 
 ```bash
-explore --help
+selas --help
 ```
 
 ## Quick Start
@@ -64,13 +64,13 @@ The CLI currently supports FITS files only for now.
 Launch directly from a FITS table file:
 
 ```bash
-explore data.fits
+selas data.fits
 ```
 
 Optional arguments:
 
 ```bash
-explore data.fits --title "Cluster Explorer" --port 5006
+selas data.fits --title "Cluster Explorer" --port 5006
 ```
 
 ## Development (uv)

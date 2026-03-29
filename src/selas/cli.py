@@ -19,7 +19,7 @@ def _read_fits_as_dataframe(path: Path):
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="explore",
+        prog="selas",
         description="Launch selas with a FITS table file.",
     )
     parser.add_argument("fits_file", type=Path, help="Path to FITS table file")
