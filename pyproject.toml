@@ -1,0 +1,56 @@
+[project]
+name = "selas"
+version = "0.1.0"
+description = "Interactive 2D visualization workbench for Pandas DataFrames"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=1.0",
+    "numpy>=1.20",
+    "holoviews>=1.14",
+    "panel>=0.12",
+    "bokeh>=2.4",
+    "datashader>=0.14",
+    "colorcet>=3.0",
+    "astropy>=5.0",
+]
+authors = [{ name = "Straw674", email = "qx24@mails.tsinghua.edu.cn" }]
+license = { file = "LICENSE" }
+keywords = [
+    "visualization",
+    "scatter",
+    "interactive",
+    "pandas",
+    "holoviews",
+    "panel",
+    "hexbin",
+    "datashader",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "black>=22.0", "ruff>=0.1"]
+
+[project.urls]
+Repository = "https://github.com/yourusername/selas"
+Issues = "https://github.com/yourusername/selas/issues"
+
+[project.scripts]
+explore = "selas.explore:main"
+
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/selas"]
