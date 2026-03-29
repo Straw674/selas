@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v0.1.1 (2026-03-29)
+
+### Bug Fixes
+
+- Harden color-candidate handling and add uv-based CI checks
+  ([`abe818c`](https://github.com/Straw674/selas/commit/abe818c6112bb5e68dc48295bfe9377b81fac51c))
+
+### Chores
+
+- Update README.md
+  ([`6884880`](https://github.com/Straw674/selas/commit/6884880af52a796c4a72c16221b8e959079f3cc5))
+
+
 ## v0.1.0 (2026-03-29)
 
 ### Chores
