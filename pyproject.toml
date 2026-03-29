@@ -56,6 +56,18 @@ allow_zero_version = true
 version_toml = ["pyproject.toml:project.version"]
 changelog_file = "CHANGELOG.md"
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
 [tool.uv]
 
 [[tool.uv.index]]

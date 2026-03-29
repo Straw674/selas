@@ -337,8 +337,9 @@ def create_dashboard(title: str, sidebar: pn.Column, plot_panel: Any) -> pn.Colu
     """
     layout = pn.Row(sidebar, pn.Column(pn.panel(plot_panel, margin=(0, 0, 0, 20))))
 
-    header = pn.pane.HTML(
-        f"<h1 style='margin-top: 5px; color: #3b82f6; font-family: sans-serif;'>{title}</h1>",
-        sizing_mode="stretch_width",
+    header_html = (
+        "<h1 style='margin-top: 5px; color: #3b82f6; font-family: sans-serif;'>"
+        f"{title}</h1>"
     )
+    header = pn.pane.HTML(header_html, sizing_mode="stretch_width")
     return pn.Column(header, layout, sizing_mode="stretch_width")

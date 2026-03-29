@@ -69,15 +69,17 @@ def select_color_candidate_columns(
             continue
 
         series = df[col]
-        unique_count = int(series.nunique(dropna=True))
-        if unique_count < 1 or unique_count > max_categorical_unique:
-            continue
-
         if isinstance(series.dtype, pd.CategoricalDtype):
+            unique_count = int(series.nunique(dropna=True))
+            if unique_count < 1 or unique_count > max_categorical_unique:
+                continue
             color_cols.append(col)
             continue
 
         if pd.api.types.is_datetime64_any_dtype(series):
+            unique_count = int(series.nunique(dropna=True))
+            if unique_count < 1 or unique_count > max_categorical_unique:
+                continue
             color_cols.append(col)
             continue
 
@@ -86,9 +88,20 @@ def select_color_candidate_columns(
             if non_null.empty:
                 continue
 
-            if _is_scalar_like_object(series):
-                color_cols.append(col)
+            if not _is_scalar_like_object(series):
                 continue
+
+        try:
+            unique_count = int(series.nunique(dropna=True))
+        except TypeError:
+            continue
+
+        if unique_count < 1 or unique_count > max_categorical_unique:
+            continue
+
+        if pd.api.types.is_object_dtype(series):
+            color_cols.append(col)
+            continue
 
         if pd.api.types.is_string_dtype(series):
             color_cols.append(col)

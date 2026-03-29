@@ -23,10 +23,13 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+
       - name: Install semantic-release
-        run: pip install python-semantic-release
+        run: uv sync --extra dev
 
       - name: Bump version and create changelog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: semantic-release version
+        run: uv run semantic-release version
