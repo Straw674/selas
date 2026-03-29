@@ -12,6 +12,18 @@ With uv (recommended):
 uv add selas
 ```
 
+For CLI usage without adding to a project:
+
+```bash
+uvx --from selas explore --help
+```
+
+For a globally installed CLI:
+
+```bash
+uv tool install selas
+```
+
 With pip:
 
 ```bash
@@ -19,19 +31,6 @@ pip install selas
 ```
 
 After installation, the CLI entry is available as `explore`.
-
-## Development (uv)
-
-```bash
-uv sync
-uv run python -c "import selas; print(selas.__all__)"
-```
-
-Project layout uses `src/`:
-
-```text
-src/selas/
-```
 
 ## Quick Start
 
@@ -42,12 +41,13 @@ from selas import launch_explorer
 # Load your data
 df = pd.read_csv("your_data.csv")
 
-# Launch the explorer
-dashboard = launch_explorer(df)
-dashboard.show(port=5006)
+# Launch and serve the explorer
+launch_explorer(df, port=5006, show=True)
 ```
 
 ## CLI (FITS)
+
+The CLI currently supports FITS files only for now.
 
 Launch directly from a FITS table file:
 
@@ -61,17 +61,40 @@ Optional arguments:
 explore data.fits --title "Cluster Explorer" --port 5006
 ```
 
-## Architecture
+## Development (uv)
 
-The package is organized into specialized modules:
+```bash
+git clone https://github.com/Straw674/selas
+cd selas
+uv sync --extra dev
+```
 
-- `explorer.py`: Main orchestration and public API
-- `colormap.py`: Colormap configuration and utilities
-- `data.py`: DataFrame preparation and column selection
-- `scatter_renderer.py`: Scatter plot rendering and color mapping
-- `hexbin_renderer.py`: Hexbin plot rendering
-- `datashader_renderer.py`: Datashader-based rendering for large datasets
-- `ui.py`: Widget creation, callbacks, and layout assembly
+Useful commands:
+
+```bash
+uv run explore --help
+uv run pytest
+uv build
+```
+
+## Release Versioning
+
+This repository uses Semantic Versioning with
+[python-semantic-release](https://python-semantic-release.readthedocs.io/).
+The next version is inferred from Conventional Commit prefixes:
+
+- `fix:` -> patch bump
+- `feat:` -> minor bump
+- `feat!:` or `BREAKING CHANGE:` -> major bump
+
+Run locally:
+
+```bash
+uv sync --extra dev
+uv run semantic-release version
+```
+
+The GitHub workflow also runs this automatically on pushes to `main`.
 
 ## License
 
