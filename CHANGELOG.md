@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v0.1.7 (2026-04-01)
+
+### Bug Fixes
+
+- Trigger release and publish
+  ([`815cdb4`](https://github.com/Straw674/selasviz/commit/815cdb48e34c5998f82bb4a3b1988bd8d103be90))
+
+### Chores
+
+- Aftermath of renaming
+  ([`4d53823`](https://github.com/Straw674/selasviz/commit/4d538231c33b72de038ae3ea4896d7ef54f56fa9))
+
+
 ## v0.1.6 (2026-04-01)
 
 ### Bug Fixes
