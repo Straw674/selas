@@ -7,7 +7,7 @@
 ### Bug Fixes
 
 - Rename the project from selas to selasviz
-  ([`07826e4`](https://github.com/Straw674/selas/commit/07826e4b1fc061a8d46454352d89d516e239c88d))
+  ([`07826e4`](https://github.com/Straw674/selasviz/commit/07826e4b1fc061a8d46454352d89d516e239c88d))
 
 
 ## v0.1.5 (2026-04-01)
