@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v0.1.8 (2026-04-01)
+
+### Bug Fixes
+
+- Cli mode can read multidimensional data columns in fits table now
+  ([`5350e6e`](https://github.com/Straw674/selasviz/commit/5350e6e2d48fbe2a1bd82829f16832e5877b99ec))
+
+### Chores
+
+- Small modification to README
+  ([`74c1a40`](https://github.com/Straw674/selasviz/commit/74c1a4069c9f4b143e61b8f24321f16600aac078))
+
+
 ## v0.1.7 (2026-04-01)
 
 ### Bug Fixes
