@@ -70,7 +70,7 @@ selas data.fits
 Optional arguments:
 
 ```bash
-selas data.fits --title "Cluster Explorer" --port 5006
+selas data.fits --title "Data Explorer" --port 5006
 ```
 
 ## Development (uv)
