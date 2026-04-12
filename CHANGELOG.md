@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v0.1.10 (2026-04-12)
+
+### Bug Fixes
+
+- Add log scale to both x and y axis
+  ([`407dc87`](https://github.com/Straw674/selasviz/commit/407dc87526c0d4f94334fafc0cf6f7f562185619))
+
+### Chores
+
+- Version change in lock file
+  ([`31f8402`](https://github.com/Straw674/selasviz/commit/31f84024891c58f5b8620326bfef2c983b2ef386))
+
+
 ## v0.1.9 (2026-04-01)
 
 ### Bug Fixes
