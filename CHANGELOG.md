@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.1.13 (2026-04-26)
+
+### Bug Fixes
+
+- Coerce out-of-range integer columns before bokeh rendering
+  ([`21e489f`](https://github.com/Straw674/selasviz/commit/21e489ff335c2f1a68cf69d16b80c161efd838a2))
+
+
 ## v0.1.12 (2026-04-12)
 
 ### Bug Fixes
