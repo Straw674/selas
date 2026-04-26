@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 
 from selasviz.data import (
+    coerce_js_safe_numeric_columns,
     filter_outliers,
     prepare_plot_dataframe,
     sample_large_data,
@@ -141,3 +142,19 @@ def test_prepare_plot_dataframe_filters_non_positive_values_on_both_axes() -> No
     assert len(out) == 2
     assert out["x"].tolist() == [0.0, 3.0]
     assert out["y"].tolist() == [0.0, 3.0]
+
+
+def test_coerce_js_safe_numeric_columns_casts_large_ints_to_float() -> None:
+    df = pd.DataFrame(
+        {
+            "safe_int": [1, 2, 3],
+            "unsafe_int": [2**53, 2**53 + 1, 2**53 + 2],
+            "float_col": [1.5, 2.5, 3.5],
+        }
+    )
+
+    out = coerce_js_safe_numeric_columns(df)
+
+    assert out["safe_int"].dtype.kind in "iu"
+    assert out["unsafe_int"].dtype.kind == "f"
+    assert out["float_col"].dtype.kind == "f"

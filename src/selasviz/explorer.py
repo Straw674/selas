@@ -13,6 +13,7 @@ import panel as pn
 
 from .colormap import _CMAP_OPTIONS
 from .data import (
+    coerce_js_safe_numeric_columns,
     filter_outliers,
     prepare_plot_dataframe,
     sample_large_data,
@@ -399,6 +400,8 @@ def launch_explorer(
                 target_size=100000,
                 sample_size=sample_size,
             )
+
+        plot_df = coerce_js_safe_numeric_columns(plot_df)
 
         plotted_points_pane.object = (
             f"## Plotted/Total Points: **{len(plot_df)}/{n_rows}**"

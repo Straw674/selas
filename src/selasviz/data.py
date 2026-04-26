@@ -6,6 +6,9 @@ import numpy as np
 import pandas as pd
 
 
+_JS_SAFE_INT_MAX = 2**53 - 1
+
+
 def select_scalar_numeric_columns(df: pd.DataFrame) -> list[str]:
     """Return scalar numeric columns usable for plotting axes.
 
@@ -166,6 +169,37 @@ def sample_large_data(
     result = pd.concat(sampled_list, ignore_index=True)
     result = result.drop(columns=["_x_bin", "_y_bin"]).head(sample_size)
     return result.reset_index(drop=True)
+
+
+def coerce_js_safe_numeric_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """Convert unsafe integer columns to float for Bokeh serialization.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Source dataframe.
+
+    Returns
+    -------
+    pd.DataFrame
+        A copy with out-of-range integer columns cast to float64.
+    """
+    safe_df = df.copy()
+    for col in safe_df.columns:
+        series = safe_df[col]
+        if not pd.api.types.is_integer_dtype(series):
+            continue
+
+        non_null = series.dropna()
+        if non_null.empty:
+            continue
+
+        min_value = non_null.min()
+        max_value = non_null.max()
+        if min_value < -_JS_SAFE_INT_MAX or max_value > _JS_SAFE_INT_MAX:
+            safe_df[col] = series.astype(float)
+
+    return safe_df
 
 
 def prepare_plot_dataframe(
