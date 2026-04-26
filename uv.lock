@@ -1895,7 +1895,7 @@ wheels = [
 
 [[package]]
 name = "selasviz"
-version = "0.1.9"
+version = "0.1.13"
 source = { editable = "." }
 dependencies = [
     { name = "astropy", version = "6.1.7", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
